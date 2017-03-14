@@ -475,11 +475,11 @@ function _lp_init --description 'Initialize liquidprompt'
         set -l running (jobs | grep "$_LP_RUNNING_JOB_WORD" | wc -l)
         set -l stopped (math "$all_jobs - $running")
         if set -q LP_ENABLE_SCREEN
-            set -l n_screen (screen -ls 2> /dev/null | grep -c "detached")
+            set -l n_screen (screen -ls 2> /dev/null | grep -c -E "Detached|detached")
         end
         [ -z "$n_screen" ]; and set n_screen 0
         if set -q LP_ENABLE_TMUX
-            set -l n_tmux (tmux list-sessions 2> /dev/null ` grep -cv "attached")
+            set -l n_tmux (tmux list-sessions 2> /dev/null ` grep -cv -E "Attached|attached")
         end
         [ -z "$n_tmux" ]; and set n_tmux 0
         set -l detached (math "$n_screen + $n_tmux")
