@@ -121,4 +121,9 @@ set -g LP_ENABLE_SSH_COLORS
 # will be disabled
 set -g LP_DISABLED_VCS_PATH ""
 
+# Show dettached sessions of multiplexers
+
+#set -g LP_ENABLE_TMUX
+#set -g LP_ENABLE_SCREEN
+
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
