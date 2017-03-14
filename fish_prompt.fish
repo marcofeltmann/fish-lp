@@ -479,7 +479,7 @@ function _lp_init --description 'Initialize liquidprompt'
         end
         [ -z "$n_screen" ]; and set n_screen 0
         if set -q LP_ENABLE_TMUX
-            set -l n_tmux (tmux list-sessions 2> /dev/null ` grep -cv -E "Attached|attached")
+            set -l n_tmux (tmux list-sessions 2> /dev/null | grep -cv -E "attached")
         end
         [ -z "$n_tmux" ]; and set n_tmux 0
         set -l detached (math "$n_screen + $n_tmux")
