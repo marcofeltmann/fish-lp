@@ -139,7 +139,7 @@ function _lp_init --description 'Initialize liquidprompt'
                 set -l SESS_SRC (who am i | sed -n 's/.*(\(.*\))/\1/p')
                 set -l SESS_PARENT (_lp_fish_parent)
 
-                if [ -z "$SESS_SRC" -o "$SESS_SRC" = ":" ]
+                if [ -z "$SESS_SRC" -o "$SESS_SRC" = ":" -o "$SESS_PARENT" = "screen" -o "$SESS_PARENT" = "tmux" ]
                     echo lcl
                 else if [ "$SESS_PARENT" = "su" -o "$SESS_PARENT" = "sudo" ]
                     echo su
